@@ -14,39 +14,39 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v2
+      # # - name: Set up Node.js
+      # #   uses: actions/setup-node@v2
+      # #   with:
+      # #     node-version: 16  # Adjust to your project's Node.js version
+
+      # - name: Install Dependencies with Yarn
+      #   run: yarn install
+        
+      # - name: Setup Java
+      #   uses: actions/setup-java@v2
       #   with:
-      #     node-version: 16  # Adjust to your project's Node.js version
+      #     java-version: '11'
+      #     distribution: 'adopt'
 
-      - name: Install Dependencies with Yarn
-        run: yarn install
+      # # - name: Build Android APK
+      # #   run: react-native run-android  # Replace with your build script
         
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-
-      # - name: Build Android APK
-      #   run: react-native run-android  # Replace with your build script
-        
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-        with:
-          sdk-platform: 'platforms;android-30'
+      # - name: Setup Android SDK
+      #   uses: android-actions/setup-android@v2
+      #   with:
+      #     sdk-platform: 'platforms;android-30'
           
-      - name: Build and Test
-        run: |
-          chmod +x android/gradlew
-          cd android && ./gradlew assembleRelease
+      # - name: Build and Test
+      #   run: |
+      #     chmod +x android/gradlew
+      #     cd android && ./gradlew assembleRelease
       
           
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: android-apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+      # - name: Upload APK Artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: android-apk
+      #     path: android/app/build/outputs/apk/release/app-release.apk
 
 #Sending apk file to Gmail to download and test it
       - name: Send Email
