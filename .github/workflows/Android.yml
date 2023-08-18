@@ -39,8 +39,7 @@ jobs:
       - name: Build and Test
         run: |
           chmod +x android/gradlew
-          cd android
-          ./gradlew assembleRelease
+          cd android && ./gradlew assembleRelease
       
           
       - name: Upload APK Artifact
@@ -51,7 +50,7 @@ jobs:
 
 #Sending apk file to Gmail to download and test it
       - name: Send Email
-        uses: swisscom/Actions/email@v2
+        uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.example.com
           server_port: 587
