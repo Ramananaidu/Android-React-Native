@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 14  # Adjust to your project's Node.js version
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Dependencies with Yarn
+        run: yarn install
         
       - name: Setup JDK
         uses: actions/setup-java@v2
@@ -49,21 +49,21 @@ jobs:
           name: android-apk
           path: android/app/build/outputs/apk/release/app-release.apk
 
-  deploy:
-    name: Deploy to Google Play
-    needs: build
-    runs-on: ubuntu-latest
+  # deploy:
+  #   name: Deploy to Google Play
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: 11  # Adjust to your JDK version
+  #     - name: Set up JDK
+  #       uses: actions/setup-java@v2
+  #       with:
+  #         java-version: 11  # Adjust to your JDK version
 
-      - name: Download APK Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: android-apk
+  #     - name: Download APK Artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: android-apk
