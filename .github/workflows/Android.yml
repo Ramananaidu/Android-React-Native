@@ -38,7 +38,7 @@ jobs:
       - name: Build and Test
         run: |
           chmod +x android/gradlew
-          ./gradlew assembleRelease
+          gradlew assembleRelease
       
           
       - name: Upload APK Artifact
