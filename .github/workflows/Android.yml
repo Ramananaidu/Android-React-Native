@@ -51,8 +51,7 @@ jobs:
       - name: Install Nodemailer
         run: npm install nodemailer
 
-      - name: Send Email
-        run: node send_email.js
+     
         
       - name: Send Email
         run: |
