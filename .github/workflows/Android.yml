@@ -49,6 +49,19 @@ jobs:
           name: android-apk
           path: android/app/build/outputs/apk/release/app-release.apk
 
+#Sending apk file to Gmail to download and test it
+      - name: Send Email
+        uses: swisscom/Actions/email@v2
+        with:
+          server_address: smtp.example.com
+          server_port: 587
+          username: naidualamuru@gmail.com
+          password: ${{ secrets.EMAIL_PASSWORD }}  # Store your email password as a GitHub secret
+          from: naidualamuru@gmail.com
+          to: naidu4cse@gmail.com
+          subject: Android APK
+          message: Here's the Android APK you requested.
+          attachments: "android/app/build/outputs/apk/release/app-release.apk"
   # deploy:
   #   name: Deploy to Google Play
   #   needs: build
