@@ -54,9 +54,9 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: naidualamuru@gmail.com
+          username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}  # Store your email password as a GitHub secret
-          from: naidualamuru@gmail.com
+          from: ${{ secrets.USER_NAME }}
           to: naidu4cse@gmail.com
           subject: Android APK
           message: Here's the Android APK you requested.
