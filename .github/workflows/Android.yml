@@ -25,7 +25,8 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v2
         with:
-          java-version: 11
+          java-version: '11'
+          distribution: 'adopt'
 
       # - name: Build Android APK
       #   run: react-native run-android  # Replace with your build script
