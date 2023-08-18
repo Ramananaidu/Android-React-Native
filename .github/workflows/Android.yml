@@ -53,7 +53,7 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
-          server_port: 465
+          server_port: 587
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}  # Store your email password as a GitHub secret
           from: ${{ secrets.USER_NAME }}
