@@ -51,50 +51,21 @@ jobs:
       - name: Install Nodemailer
         run: npm install nodemailer
 
-     
-        
+
+#Sending apk file to Gmail to download and test it
       - name: Send Email
-        run: |
-          curl -X POST \
-          --url 'https://api.sendgrid.com/v3/mail/send' \
-          --header "Authorization: Bearer ${{ secrets.SENDGRID_API_KEY }}" \
-          -- header 'Content-Type: application/json' \
-          --data '{
-            "personalizations": [
-              {
-                "to": [{"email": "naidu4cse@gmail.com"}],
-                "subject": "Android APK"
-              }
-            ],
-            "from": {"email": "naidualamuru.com"},
-            "content": [
-              {
-                "type": "text/plain",
-                "value": "Here's the Android APK you requested."
-              }
-            ],
-            "attachments": [
-              {
-                "content": "'$(base64 -w 0 path/to/directory/app/build/outputs/apk/debug/*.apk)'",
-                "filename": "your-app.apk"
-              }
-            ]
-          }'
-
-
-# #Sending apk file to Gmail to download and test it
-#       - name: Send Email
-#         uses: dawidd6/action-send-mail@v3
-#         with:
-#           server_address: smtp.gmail.com
-#           server_port: 587
-#           username: ${{secrets.USER_NAME}}
-#           password: ${{secrets.EMAIL_PASSWORD}}  # Store your email password as a GitHub secret
-#           from: ${{secrets.USER_NAME}}
-#           to: naidu4cse@gmail.com
-#           subject: Android APK
-#           message: Here's the Android APK you requested.
-#           attachments: "android/app/build/outputs/apk/release/app-release.apk"
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{secrets.USER_NAME}}
+          password: ${{secrets.EMAIL_PASSWORD}}  # Store your email password as a GitHub secret
+          from: ${{secrets.USER_NAME}}
+          to: naidu4cse@gmail.com
+          secure: true
+          subject: Android APK
+          message: Here's the Android APK you requested.
+          attachments: "android/app/build/outputs/apk/release/app-release.apk"
 #   # deploy:
   #   name: Deploy to Google Play
   #   needs: build
