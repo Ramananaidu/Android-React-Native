@@ -14,15 +14,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16  # Adjust to your project's Node.js version
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 16  # Adjust to your project's Node.js version
 
       - name: Install Dependencies with Yarn
         run: yarn install
         
-      - name: Setup JDK
+      - name: Setup Java
         uses: actions/setup-java@v2
         with:
           java-version: '11'
