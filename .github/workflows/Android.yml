@@ -37,7 +37,7 @@ jobs:
           
       - name: Build and Test
         run: |
-          chmod +x ./gradlew
+          chmod +x android/gradlew
           ./gradlew assembleRelease
       
           
