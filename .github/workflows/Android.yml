@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        
 
       # # - name: Set up Node.js
       # #   uses: actions/setup-node@v2
@@ -64,7 +65,7 @@ jobs:
           from: ${{secrets.USER_NAME}}
           to: ${{secrets.MAIL_SERVER}}
           secure: true
-          GIT_SSL_NO_VERIFY=true
+          GIT_SSL_NO_VERIFY: true
         
           subject: Android APK
           message: Here's the Android APK you requested.
