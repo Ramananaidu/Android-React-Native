@@ -55,8 +55,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 6.9.4
-      - run: node -v
-        #run: npm install nodemailer
+      # - run: node -v
+      #   #run: npm install nodemailer
 
 
 #Sending apk file to Gmail to download and test it
