@@ -52,7 +52,7 @@ jobs:
       - name: Install Nodemailer
         # uses: nodenv/actions/node-version@v3
         # id: nodenv
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 6.9.4
       # - run: node -v
