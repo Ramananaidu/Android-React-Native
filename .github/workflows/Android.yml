@@ -50,7 +50,7 @@ jobs:
       #     path: android/app/build/outputs/apk/release/app-release.apk
 
       - name: Install Nodemailer
-        uses: nodenv/actions/node-version@v3
+        # uses: nodenv/actions/node-version@v3
         # id: nodenv
       - uses: actions/setup-node@v3
         with:
