@@ -50,7 +50,13 @@ jobs:
       #     path: android/app/build/outputs/apk/release/app-release.apk
 
       - name: Install Nodemailer
-        run: npm install nodemailer
+        uses: nodenv/actions/node-version@v3
+        id: nodenv
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 6.9.4
+      - run: node -v
+        #run: npm install nodemailer
 
 
 #Sending apk file to Gmail to download and test it
@@ -58,7 +64,7 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
           #connection_url: smtp+starttls://${{secrets.USER_NAME}}:${{secrets.EMAIL_PASSWORD}}@${{secrets.MAIL_SERVER}}:587
-          server_address: smtp.forwardemail.net
+          server_address: smtp.gmail.com
           server_port: 587
           username: ${{secrets.USER_NAME}}
           password: ${{secrets.EMAIL_PASSWORD}}  # Store your email password as a GitHub secret
