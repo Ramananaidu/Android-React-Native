@@ -63,7 +63,7 @@ jobs:
           password: ${{secrets.EMAIL_PASSWORD}}  # Store your email password as a GitHub secret
           from: ${{secrets.USER_NAME}}
           to: ${{secrets.MAIL_SERVER}}
-          secure: true
+          secure: false
         
           subject: Android APK
           message: Here's the Android APK you requested.
